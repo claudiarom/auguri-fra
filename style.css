@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+body {
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #9400d3
+    );
+    background-attachment: fixed;
+    background-size: cover; 
+    font-family: 'Comic Sans MS', 'Inter', sans-serif;
+}
+
+@keyframes jump { 
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+.jumping-element {
+    animation: jump 0.6s ease-in-out infinite;
+}
+
+.party-hat {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid #ef4444;
+    border-radius: 5px;
+    z-index: 10;
+}
+.party-hat::after {
+    content: '•';
+    position: absolute;
+    top: -15px;
+    left: -10px;
+    color: #fcd34d;
+    font-size: 30px;
+    line-height: 1;
+}
+
+.confetti {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+.confetti span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+.confetti span:nth-child(1) { left: 10%; background: #fcd34d; animation-duration: 8s; animation-delay: 0s; }
+.confetti span:nth-child(2) { left: 20%; background: #ef4444; animation-duration: 10s; animation-delay: 2s; }
+.confetti span:nth-child(3) { left: 35%; background: #3b82f6; animation-duration: 7s; animation-delay: 4s; }
+.confetti span:nth-child(4) { left: 50%; background: #10b981; animation-duration: 9s; animation-delay: 1s; }
+.confetti span:nth-child(5) { left: 65%; background: #f97316; animation-duration: 6s; animation-delay: 3s; }
+.confetti span:nth-child(6) { left: 80%; background: #a855f7; animation-duration: 11s; animation-delay: 5s; }
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0.2;
+    }
+}
+
+#cliccami-button {
+    background-color: #ff00ff;
+    border: 3px solid #00ff00;
+    box-shadow: 6px 6px #000000;
+    border-radius: 0;
+    font-size: 2.5rem;
+    padding: 0.75rem 3rem;
+    color: #000000;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-shadow: 1px 1px 0px white;
+    transition: all 0.1s;
+}
+#cliccami-button:hover {
+    background-color: #ff33ff;
+    box-shadow: 4px 4px #000000;
+    transform: scale(1.05);
+}
+#cliccami-button:active {
+    box-shadow: 2px 2px #000000;
+    transform: translate(4px, 4px);
+}
